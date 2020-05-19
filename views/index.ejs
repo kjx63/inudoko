@@ -1,0 +1,17 @@
+<% layout('layouts/boilerplate.ejs') -%>
+    <h1>
+        <%= title %>
+    </h1>
+    <h4>犬どこホームへようこそ</h4>
+    <p>
+        下の地図から、これからワンちゃんと行きたい遊びスポットを見つけましょう！
+    </p>
+    <div id='map'></div>
+
+    <script>
+        mapboxgl.accessToken = "<%= mapBoxToken %>";
+        var posts = {
+            features: <%- JSON.stringify(posts) %>
+        };
+    </script>
+    <script src="/javascripts/allPostsClusterMap.js"></script>
